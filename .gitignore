@@ -1,4 +1,4 @@
-#OSX
+# OSX
 .DS_Store
 
 # Windows thumbnail cache files
@@ -26,7 +26,7 @@ venv
 wireframe
 
 
-### Django ###
+# Django
 *.log
 *.pot
 *.pyc
