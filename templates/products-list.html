@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Adetech Store</title>
+</head>
+<body>
+    <div>
+        <h2>Products</h2>
+        <ul>
+            {% for product in products %}
+            <li>
+                <div>{{product.title}}</div>
+                <div>{{product.description}}</div>
+            </li>
+            {% endfor %}
+        </ul>
+    </div>
+</body>
+</html>
