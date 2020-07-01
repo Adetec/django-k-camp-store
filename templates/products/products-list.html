@@ -8,14 +8,18 @@
 <body>
     <div>
         <h2>Products</h2>
-        <ul>
-            {% for product in products %}
-            <li>
-                <a href="{% url 'product_details' product.pk %}">{{product.title}}</a>
-                <div>{{product.description}}</div>
-            </li>
-            {% endfor %}
-        </ul>
+        {% if products %}
+            <ul>
+                {% for product in products %}
+                <li>
+                    <a href="{% url 'product_details' product.pk %}">{{product.title}}</a>
+                    <div>{{product.description}}</div>
+                </li>
+                {% endfor %}
+            </ul>   
+        {% else %}
+            <div>Sorry! We have no product available till now!</div>
+        {% endif %}
     </div>
 </body>
 </html>
