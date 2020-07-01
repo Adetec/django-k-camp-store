@@ -6,9 +6,9 @@ from .models import Product
 
 def products_list(request):
     products = Product.objects.all()
-    return render(request, 'products-list.html', {'products': products})
+    return render(request, 'products/products-list.html', {'products': products})
 
 
 def product_details(request, pk):
     product = get_object_or_404(Product, pk=pk)
-    return render(request, 'product-details.html', {'product': product})
+    return render(request, 'products/product-details.html', {'product': product})
