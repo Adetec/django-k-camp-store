@@ -10,5 +10,5 @@ def products_list(request):
 
 
 def product_details(request, id):
-    product = get_object_or_404(Product, id)
+    product = get_object_or_404(Product, pk)
     return render(request, 'product-details.html', {'product': product})
