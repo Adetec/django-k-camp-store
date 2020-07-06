@@ -8,7 +8,10 @@ class Category(models.Model):
 
 
     def __str__(self):
-        return self.title 
+        return self.title
+
+    def get_products(self):
+        return Product.objects.filter(category=self.title) 
 
 
 class Product(models.Model):
