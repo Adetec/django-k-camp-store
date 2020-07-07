@@ -1,5 +1,5 @@
 # Django-k camp store
-The [Coretabs](https://coretabs.net) camp project
+The [Coretabs](https://coretabs.net/k-camps/django/) camp project
 
 ![coretabs](https://coretabs.net/img/logo.262f5c5b.png "Coretabs logo")
 
