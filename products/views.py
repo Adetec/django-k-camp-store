@@ -1,5 +1,6 @@
 from django.shortcuts import render, get_object_or_404
 from .models import Product
+from .forms import AddProductForm
 
 # Create your views here.
 
@@ -18,18 +19,12 @@ def product_details(request, pk):
 
 def product_add(request):
     if request.method == 'POST':
-        brand = request.POST['brand']
-        title = request.POST['title']
-        description = request.POST['description']
-        price = request.POST['price']
+        form = AddProductForm(request.POST)
 
-        product = Product(
-            brand=brand,
-            title=title,
-            description=description,
-            price=price
-        )
-        product.save()
-        return render(request, 'products/product-add-successful.html')
+        if form.is_valid():
+            product.save()
+            return render(request, 'products/product-add-successful.html')
     else:
-        return render(request, 'products/product-add.html')
+        form = AddProductForm()
+
+    return render(request, 'products/product-add.html', {'form': form})
