@@ -4,6 +4,7 @@ from django.db import models
 
 
 class Product(models.Model):
+    brand = models.CharField(max_length=100)
     title = models.CharField(max_length=100)
     description = models.CharField(max_length=500)
     price = models.IntegerField(default=0)
