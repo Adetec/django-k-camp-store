@@ -17,4 +17,19 @@ def product_details(request, pk):
 
 
 def product_add(request):
-    return render(request, 'products/product-add.html')
+    if request.method == 'POST':
+        brand = request.POST['brand']
+        title = request.POST['title']
+        description = request.POST['description']
+        price = request.POST['price']
+
+        product = Product(
+            brand=brand,
+            title=title,
+            description=description,
+            price=price
+        )
+        product.save()
+        return render(request, 'products/product-add-successful.html')
+    else:
+        return render(request, 'products/product-add.html')
