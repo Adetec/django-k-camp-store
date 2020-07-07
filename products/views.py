@@ -22,7 +22,7 @@ def product_add(request):
         form = AddProductForm(request.POST)
 
         if form.is_valid():
-            return render(request, 'products/product-add-edit-successful.html', {'operation': 'Add'})
+            return render(request, 'products/product-crud-successful.html', {'operation': 'Add'})
     else:
         form = AddProductForm()
 
@@ -36,8 +36,19 @@ def product_edit(request, pk):
         form = AddProductForm(request.POST, instance=product)
 
         if form.is_valid():
-            return render(request, 'products/product-add-edit-successful.html', {'operation': 'Edit'})
+            return render(request, 'products/product-crud-successful.html', {'operation': 'Edit'})
     else:
         form = AddProductForm(instance=product)
 
     return render(request, 'products/product-add-edit.html', {'form': form, 'operation': 'Edit'})
+
+
+def product_delete(request, pk):
+    product = get_object_or_404(Product, pk=pk)
+    product.delete()
+
+    context = {
+        'product': product,
+        'operation': 'Delet'
+        }
+    return render(request, 'products/product-crud-successful.html', context)
