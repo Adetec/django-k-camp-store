@@ -22,9 +22,22 @@ def product_add(request):
         form = AddProductForm(request.POST)
 
         if form.is_valid():
-            product.save()
-            return render(request, 'products/product-add-successful.html')
+            return render(request, 'products/product-add-edit-successful.html', {'operation': 'Add'})
     else:
         form = AddProductForm()
 
-    return render(request, 'products/product-add.html', {'form': form})
+    return render(request, 'products/product-add-edit.html', {'form': form, 'operation': 'Add'})
+
+
+def product_edit(request, pk):
+    product = get_object_or_404(Product, pk=pk)
+
+    if request.method == 'POST':
+        form = AddProductForm(request.POST, instance=product)
+
+        if form.is_valid():
+            return render(request, 'products/product-add-edit-successful.html', {'operation': 'Edit'})
+    else:
+        form = AddProductForm(instance=product)
+
+    return render(request, 'products/product-add-edit.html', {'form': form, 'operation': 'Edit'})
