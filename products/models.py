@@ -10,12 +10,9 @@ class Category(models.Model):
     def __str__(self):
         return self.title
 
-    def get_products(self):
-        return Product.objects.filter(category=self.title) 
-
 
 class Product(models.Model):
-    category = models.ForeignKey(Category, on_delete=models.CASCADE, null=True)
+    category = models.ForeignKey(Category, on_delete=models.CASCADE, related_name="products", null=True)
     title = models.CharField(max_length=100)
     description = models.CharField(max_length=500)
     price = models.IntegerField(default=0)
