@@ -8,7 +8,7 @@ The [Coretabs](https://coretabs.net/k-camps/django/) camp project
   
 ## Links
 * Tasks board on [Trello](https://trello.com/b/gbKI1u4P/coretabs-store-tasks)
-* Live demo [Heroku](https://trello.com/b/gbKI1u4P/coretabs-store-tasks)
+* Live demo [Heroku](https://coretabs-django-k-store.herokuapp.com/products/)
   
 ## Wireframes
   ![Wireframes](https://trello-attachments.s3.amazonaws.com/5ef2408bd7f6ae7694d407b5/5ef2432cce142b403da51d69/71c300f9776eb48aad650e349e1c3eb5/coretabs-store-wireframe.png "Project wireframes ")
