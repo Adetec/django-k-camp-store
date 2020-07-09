@@ -323,7 +323,7 @@ span.helptext {
     position: relative;
     overflow: hidden;
     background: #efefef;
-    background-image: url("image-not-found.svg");
+    background-image: url("../svg/image-not-found.svg");
     background-repeat: no-repeat;
     background-position: center;
     background-size: 30%;
