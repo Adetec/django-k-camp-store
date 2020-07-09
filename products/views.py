@@ -37,6 +37,7 @@ def product_edit(request, pk):
         form = AddProductForm(request.POST, request.FILES, instance=product)
 
         if form.is_valid():
+            form.save()
             return render(request, 'products/product-crud-successful.html', {'operation': 'Edit'})
     else:
         form = AddProductForm(instance=product)
