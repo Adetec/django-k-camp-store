@@ -3,6 +3,14 @@ The [Coretabs](https://coretabs.net/k-camps/django/) camp project
 
 ![coretabs](https://coretabs.net/img/logo.262f5c5b.png "Coretabs logo")
 
+
+
+- [Django-k camp store](#django-k-camp-store)
+  - [Techs & frameworks](#techs--frameworks)
+  - [Links](#links)
+  - [Wireframes](#wireframes)
+  - [Trainers](#trainers)
+
 ## Techs & frameworks
 * Django (python)
   
