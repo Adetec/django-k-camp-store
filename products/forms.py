@@ -10,5 +10,6 @@ class AddProductForm(forms.ModelForm):
             'brand',
             'title',
             'price',
-            'description'
+            'description',
+            'image'
         )
