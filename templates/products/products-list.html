@@ -3,19 +3,29 @@
 {% block title %}All products{% endblock %}
 
 {% block content %}
-    <div>
-        <h2>Products</h2>
-        <ul>
+    <section id="featured-products">
+
+        <h2 class="section-headline">Featured Products</h2>
+        <p class="section-description">
+            Refresh your look with pieces of our winter collection
+        </p>
+    
+        <div class="products-wrapper clearfix">
             {% for product in products %}
-            <li>
-                <div>{{product.brand}}</div>
-                <img src="{{ product.image.url }}" alt="{{ product.title }}">
-                <a href="{% url 'product_details' product.pk %}">{{product.title}}</a>
-                <div>${{product.price}}</div>
-            </li>
+            <div class="product">
+                <div class="product-img">
+                    <img src="{{product.image.url}}" alt="{{ product.title }}">
+                    <a href="{% url 'product_details' product.pk %}" class="details-btn">Details</a>
+                </div>
+                <div class="product-description">
+                    <div class="product-brand">{{ product.brand | capfirst }}</div>
+                    <a class="product-name" href="{% url 'product_details' product.pk %}">{{ product.title | capfirst }}</a>
+                    <div class="product-price">${{ product.price | floatformat:2 }}</div>
+                </div>
+            </div>
             {% empty %}
-            <div>Sorry! We have no product available till now!</div>
+            <p>Sorry! We have no product available till now!</p>
             {% endfor %}
-        </ul>
-    </div>
+        </div>
+    </section>
 {% endblock %}

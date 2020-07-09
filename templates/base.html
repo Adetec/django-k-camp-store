@@ -9,13 +9,31 @@
     <title>{% block title %}{% endblock %} | Adetech Store</title>
 </head>
 <body>
-    {% block header %}
-    {% endblock %}
+    <div class="wrapper">
+        <header>
+            <h1 id="logo">
+                <a href="{% url 'home' %}">STORE</a>
+            </h1>
 
-    {% block content %}
-    {% endblock %}
+            <div id="controls">
+                <div id="cart">
+                </div>
+            </div>
+        </header>
+        <main>
+            {% block content %}
+            {% endblock %}
+        </main>
+    </div>
+    <footer>
+        <a href="#" id="scroll-up">
+            <i class="fas fa-chevron-up"></i>
+        </a>
+        <!--2-->
+        <p>&copy; 2020 STORE All Rights Reserved.</p>
+        <!--2-->
+    </footer>
 
-    {% block footer %}
-    {% endblock %}
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/js/all.min.js" crossorigin="anonymous"></script>
 </body>
 </html>

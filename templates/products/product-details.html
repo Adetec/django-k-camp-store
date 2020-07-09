@@ -3,11 +3,17 @@
 {% block title %}{{product.title}}{% endblock %}
 
 {% block content %}
-    <div>
-        <h2>{{product.title}}</h2>
-        <div>Brand: {{product.brand}}</div>
-        <div>Description{{product.description}}</div>
-        <div>Price: ${{product.price}}</div>
-        <a href="{% url 'home'%}">Return to products list</a>
-    </div>
+    <section class="single-product-details clearfix">
+        <div class="product-details-img">
+            <img src="{{product.image.url}}" alt="{{ product.title }}" />
+        </div>
+        <div class="product-details-desc">
+            <div class="product-brand">{{product.brand | capfirst }}</div>
+            <h2 class="product-name">{{product.title | capfirst }}</h2>
+            <div class="product-price">${{product.price | floatformat:2 }}</div>
+            <p class="product-desc">
+                {{product.description}}
+            </p>
+        </div>
+    </section>
 {% endblock %}
