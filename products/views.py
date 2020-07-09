@@ -22,6 +22,7 @@ def product_add(request):
         form = AddProductForm(request.POST, request.FILES)
 
         if form.is_valid():
+            form.save()
             return render(request, 'products/product-crud-successful.html', {'operation': 'Add'})
     else:
         form = AddProductForm()
