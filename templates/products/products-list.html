@@ -12,7 +12,7 @@
             {% for product in products %}
             <li>
                 <div>{{product.brand}}</div>
-                <img src="{{ product.image }}" alt="{{ product.title }}">
+                <img src="{{ product.image.url }}" alt="{{ product.title }}">
                 <a href="{% url 'product_details' product.pk %}">{{product.title}}</a>
                 <div>${{product.price}}</div>
             </li>
