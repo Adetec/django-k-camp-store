@@ -17,6 +17,10 @@
 
             <div id="controls">
                 <div id="cart">
+                    {% if user.is_superuser %}
+                    <a href="{% url 'product_add' %}">New product</a>
+                        
+                    {% endif %}
                 </div>
                 <div>
                     {% if user.is_authenticated %}
