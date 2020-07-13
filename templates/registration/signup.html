@@ -1,18 +1,18 @@
 {% extends 'base.html' %}
 
-{% block title %}{{ operation }} product{% endblock %}
+{% block title %}Sign up{% endblock %}
 
 {% block content %}
     <section class="form-section">
         <h2 class="section-headline">Add/Edit Product</h2>
         <p class="section-description">
-            Add new product.
+            Please fill in this form to create your account.
         </p>
         <div class="form">
             <form action="" method="post" enctype="multipart/form-data">
                 {% csrf_token %}
                 {{ form.as_p }}
-                <input type="submit" value="{{ operation }}">
+                <input type="submit" value="Signup">
             </form>
         </div>
     </section>
