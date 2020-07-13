@@ -1,6 +1,7 @@
 from django.shortcuts import render, get_object_or_404
 from .models import Product
 from .forms import AddProductForm
+from django.contrib.auth.decorators import login_required
 
 # Create your views here.
 
@@ -17,6 +18,7 @@ def product_details(request, pk):
     return render(request, 'products/product-details.html', context)
 
 
+@login_required
 def product_add(request):
     if request.method == 'POST':
         form = AddProductForm(request.POST, request.FILES)
