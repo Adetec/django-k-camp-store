@@ -49,7 +49,7 @@ header{
     cursor: pointer;
     margin-right: 16px;
 }
-#controls p { display: inline-block;}
+#controls p, #controls div { display: inline-block;}
 #controls #cart a{
     color: #222; 
 }
@@ -85,6 +85,10 @@ header{
     color: #222;
     cursor: pointer;
     margin-left: 20px;
+}
+
+#login, #logout {
+    text-align: center;
 }
 /*Navbar Rules*/
 .nav{
