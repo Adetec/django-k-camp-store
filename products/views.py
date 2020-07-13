@@ -54,11 +54,15 @@ def product_edit(request, pk):
 
 
 def product_delete(request, pk):
-    product = get_object_or_404(Product, pk=pk)
-    product.delete()
+    if request.user.is_authenticated and request.user.is_superuser:
+        product = get_object_or_404(Product, pk=pk)
+        product.delete()
 
-    context = {
-        'product': product,
-        'operation': 'Delet'
-        }
-    return render(request, 'products/product-crud-successful.html', context)
+        context = {
+            'product': product,
+            'operation': 'Delet'
+            }
+        return render(request, 'products/product-crud-successful.html', context)
+    else:
+        return redirect('products_list')
+
