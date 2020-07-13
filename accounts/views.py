@@ -10,5 +10,11 @@ def signup(request):
             return redirect('login')
     else:
         form = SignUpForm()
-
-    return render(request, 'registration/signup.html')
+    context = {
+        'form': form,
+        'operation': {
+            'title': 'signup',
+            'description': 'Please fill in this form to create your account.'
+        }
+    }
+    return render(request, 'registration/signup.html', context )
