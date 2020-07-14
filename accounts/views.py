@@ -10,7 +10,7 @@ def signup(request):
             user = form.save()
             user.is_active = False
             user.save()
-            send_confirmation_email(user)
+            send_confirmation_email(request, user)
             context = {
                 'user': user
             }
