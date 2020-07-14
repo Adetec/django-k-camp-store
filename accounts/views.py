@@ -1,6 +1,9 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
+from django.http.response import HttpResponseBadRequest
+from django.contrib.auth.models import User
 from .forms import SignUpForm
 from .utils import send_confirmation_email
+from .tokens import ConfirmEmailTokenGenerator
 
 # Create your views here.
 def signup(request):
@@ -25,3 +28,16 @@ def signup(request):
         }
     }
     return render(request, 'registration/signup.html', context )
+
+
+def activate_email(request, uid, token):
+    user = get_object_or_404(pk=uid)
+
+    if ConfirmEmailTokenGenerator(user, token):
+        user.is_active = True
+        user.save()
+
+        return redirect('login')
+    else:
+        return HttpResponseBadRequest('Bad token')
+
