@@ -12,7 +12,7 @@ def signup(request):
             user.save()
             send_confirmation_email(user)
 
-            return redirect('login')
+            return render(request, 'registration/signup-success.html')
     else:
         form = SignUpForm()
     context = {
