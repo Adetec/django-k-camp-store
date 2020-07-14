@@ -11,8 +11,10 @@ def signup(request):
             user.is_active = False
             user.save()
             send_confirmation_email(user)
-
-            return render(request, 'registration/signup-success.html')
+            context = {
+                'user': user
+            }
+            return render(request, 'registration/signup-successful.html', context)
     else:
         form = SignUpForm()
     context = {

@@ -1,5 +1,7 @@
+from .tokens import ConfirmEmailTokenGenerator
 
 
+confirm_email_token_generator = ConfirmEmailTokenGenerator()
 
 def send_confirmation_email(user):
     token = make_token(user)
