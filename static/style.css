@@ -212,8 +212,8 @@ main {
     margin: 45px auto;
     padding: 0 20px;
 }
-.form p {
-    margin: 0 0 20px 0;
+.form p, .form div {
+    margin: 4px 0 20px 0;
     text-align: left;
 }
 
@@ -260,7 +260,8 @@ main {
     border: 1px solid #ccc;
 }
 
-.form button{
+.form button,
+.submit-btn {
     width: 140px;
     line-height: 40px;
     font-size: 16px;
@@ -272,7 +273,8 @@ main {
     transition-duration: .3s;
 }
 
-.form button:hover{
+.form button:hover,
+.submit-btn:hover {
    background: #111;
 }
 
