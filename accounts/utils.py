@@ -1,13 +1,12 @@
 from django.contrib.sites.shortcuts import get_current_site
 from django.template.loader import render_to_string
-from .tokens import ConfirmEmailTokenGenerator
+from .tokens import confirm_email_token_generator
 
-
-confirm_email_token_generator = ConfirmEmailTokenGenerator()
 
 def send_confirmation_email(request, user):
     token = confirm_email_token_generator.make_token(user)
-    domain = str(get_current_site(request))
+    domain = get_current_site(request)
+    uid = user.pk
 
     subject = 'Activate your account'
     message = render_to_string(
@@ -15,7 +14,8 @@ def send_confirmation_email(request, user):
         {
             'user': user,
             'token': token,
-            'domain': domain
+            'domain': domain,
+            'uid': uid
         }
     )
 

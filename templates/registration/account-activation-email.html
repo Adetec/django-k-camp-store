@@ -2,4 +2,4 @@ Hi {{ user.username }}
 
 Please click on the link below to activate your account
 
-{{ domain }}{% url 'activate_email' uid=user.pk token=token %}
+{{ domain }}{% url 'activate_email' uid=uid token=token %}

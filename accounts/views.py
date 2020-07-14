@@ -3,7 +3,7 @@ from django.http.response import HttpResponseBadRequest
 from django.contrib.auth.models import User
 from .forms import SignUpForm
 from .utils import send_confirmation_email
-from .tokens import ConfirmEmailTokenGenerator
+from .tokens import confirm_email_token_generator
 
 # Create your views here.
 def signup(request):
@@ -31,9 +31,9 @@ def signup(request):
 
 
 def activate_email(request, uid, token):
-    user = get_object_or_404(pk=uid)
+    user = get_object_or_404(User, pk=uid)
 
-    if ConfirmEmailTokenGenerator(user, token):
+    if confirm_email_token_generator.check_token(user, token):
         user.is_active = True
         user.save()
 
