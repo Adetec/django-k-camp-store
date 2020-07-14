@@ -4,10 +4,10 @@ from .tokens import ConfirmEmailTokenGenerator
 
 confirm_email_token_generator = ConfirmEmailTokenGenerator()
 
-def send_confirmation_email(user):
-    token = make_token(user)
-    uid = user.id
-    domain = get_current_site
+def send_confirmation_email(request, user):
+    token = confirm_email_token_generator.make_token(user)
+    uid = str(user.id)
+    domain = str(get_current_site(request))
     slash = '/'
 
     subject = 'Activate your account'
