@@ -625,8 +625,14 @@ footer p{
 
 .cart a.clear {
     background: #F44336;
+    border: 1px #F44336 solid;
 }
 
+.cart a.clear:hover {
+    background: #fff;
+    border: 1px #F44336 solid;
+    color: #F44336;
+}
 
 /* Success Pages */
 a.back {
