@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+
+{% block title %}{{ user.username }}'s Cart{% endblock %}
+
+{% block content %}
+    <section class="clearfix">
+
+        <h2 class="section-headline">Your cart</h2>
+        <p class="section-description">
+            All products you've added to your cart
+        </p>
+    
+        <div class="cart">
+            <ul>
+                {% for product in products %}
+                <li class="item">
+                    <div class="cart-product-img">
+                        <img src="{{product.image.url}}" alt="{{ product.title }}">
+                    </div>
+                    <div >
+                        <h3>{{ product.title | capfirst }}</h3>
+                    </div>
+                    <div>
+                        <p>${{ product.price | floatformat:2 }}</p>
+                    </div>
+                    <div>
+                        <a class="remove" href="{% url 'remove_from_cart' product_id=product.id %}">x</a>
+                    </div>
+                </li>
+                {% empty %}
+                <li>
+                    <p>Your cart is still empty!</p>
+                </li>
+                {% endfor %}
+            </ul>
+        </div>
+        <div>
+            Total price: ${{ total_price.price__sum | floatformat:2  }}
+        </div>
+        <div>
+            <a href="{% url 'remove_all_from_cart' %}">x</a>
+        </div>
+    </section>
+{% endblock %}
