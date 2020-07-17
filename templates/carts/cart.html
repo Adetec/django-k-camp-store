@@ -32,13 +32,19 @@
                     <p>Your cart is still empty!</p>
                 </li>
                 {% endfor %}
+                <li id="cart-summary" class="item">
+                    <div>
+                        <h3>Total price</h3>
+                    </div>
+                    <div>
+                        <p>${{ total_price.price__sum | floatformat:2  }}</p>
+                    </div>
+                    <div>
+                        <a class="clear" href="{% url 'remove_all_from_cart' %}">Clear cart</a>
+                    </div>
+
+                </li>
             </ul>
-        </div>
-        <div>
-            Total price: ${{ total_price.price__sum | floatformat:2  }}
-        </div>
-        <div>
-            <a href="{% url 'remove_all_from_cart' %}">x</a>
         </div>
     </section>
 {% endblock %}
