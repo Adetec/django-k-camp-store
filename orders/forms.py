@@ -21,3 +21,5 @@ class OrderForm(forms.ModelForm):
         total_price = self.instance.items.aggregate(Sum('price'))
 
         send_order_email(self.instance, total_price)
+
+        user.cart.items.clear()
