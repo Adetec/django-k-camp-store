@@ -43,7 +43,7 @@
                             <p>${{ total_price.price__sum | floatformat:2  }}</p>
                         </div>
                         <div>
-                            <a class="checkout" href="{% url 'checkout' user.pk %}">Checkout</a>
+                            <a class="checkout" href="{% url 'checkout' user.cart.pk %}">Checkout</a>
                             <a class="clear" href="{% url 'remove_all_from_cart' %}">Clear cart</a>
                         </div>
 
