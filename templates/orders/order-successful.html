@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+
+{% block title %}{{ user.username | capfirst }}'s order{% endblock %}
+
+{% block content %}
+    <section>
+        <div>
+            <h1 class="section-headline">Thank {{ user.username | capfirst }}!</h1>
+            <p>An email has been sent with your order's details</p>
+            <a class="back" href="{% url 'home' %}">Return to products</a>
+        </div>
+    </section>
+{% endblock %}
