@@ -2,7 +2,7 @@ from django.shortcuts import render, get_object_or_404, redirect
 from carts.models import Cart
 from accounts.models import Profile
 from .models import Order
-
+from django.db.models import Sum
 from .forms import OrderForm
 
 
@@ -26,6 +26,8 @@ def checkout(request, pk):
             if form.is_valid():
                 form.save()
                 order.items.set(products)
+
+                total_price = products.aggregate(Sum('price'))
                 
                 return render(request, 'orders/order-successful.html')
         else:
