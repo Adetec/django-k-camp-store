@@ -2,7 +2,6 @@ from django.shortcuts import render, get_object_or_404, redirect
 from carts.models import Cart
 from accounts.models import Profile
 from .models import Order
-from django.db.models import Sum
 from .forms import OrderForm
 from .utils import send_order_email
 
@@ -15,22 +14,15 @@ def checkout(request, pk):
         
         cart = user.cart
         profile = Profile.objects.filter(user_id=user.id).first()
-        products = cart.items.all()
         
         if request.method == 'POST':
-            order = Order(
-                user=user,
-                address=profile.address,
-            )
-            form = OrderForm(request.POST, instance=order)
+            form = OrderForm(request.POST)
 
             if form.is_valid():
-                form.save()
-                order.items.set(products)
-                total_price = products.aggregate(Sum('price'))
-                send_order_email(order, total_price)
+                form.save_order(user)
 
                 return render(request, 'orders/order-successful.html')
+
         else:
             form = OrderForm(initial={
                 'address': profile.address
