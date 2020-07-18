@@ -14,6 +14,8 @@ def checkout(request, pk):
         
         cart = user.cart
         profile = Profile.objects.filter(user_id=user.id).first()
+
+        
         
         if request.method == 'POST':
             form = OrderForm(request.POST)
@@ -24,6 +26,10 @@ def checkout(request, pk):
                 return render(request, 'orders/order-successful.html')
 
         else:
+
+            if not cart.items.exists():
+                return redirect('cart')
+
             form = OrderForm(initial={
                 'address': profile.address
             })
