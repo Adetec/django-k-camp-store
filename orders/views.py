@@ -4,7 +4,7 @@ from accounts.models import Profile
 from .models import Order
 from django.db.models import Sum
 from .forms import OrderForm
-from .utils import send_confirmation_email
+from .utils import send_order_email
 
 
 # Create your views here.
@@ -28,7 +28,7 @@ def checkout(request, pk):
                 form.save()
                 order.items.set(products)
                 total_price = products.aggregate(Sum('price'))
-                send_confirmation_email(order, total_price)
+                send_order_email(order, total_price)
 
                 return render(request, 'orders/order-successful.html')
         else:
