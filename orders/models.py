@@ -9,6 +9,7 @@ class Order(models.Model):
     user = models.OneToOneField(User, related_name='orders', on_delete=models.CASCADE)
     items = models.ManyToManyField(Product)
     ordered_at = models.DateTimeField(auto_now=True)
+    address = models.CharField(max_length=500, default='')
 
 
     def __str__(self):
