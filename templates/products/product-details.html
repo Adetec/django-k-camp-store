@@ -15,8 +15,10 @@
                 {{product.description}}
             </p>
         </div>
-        <div>
-            <a href="{% url 'add_to_cart' product_id=product.id %}">Add product</a>
+        <div class="cart-btn-box">
+            <a href="{% url 'add_to_cart' product_id=product.id %}">
+                <i class="fas fa-cart-plus"></i>   Add to cart
+            </a>
         </div>
     </section>
 {% endblock %}
