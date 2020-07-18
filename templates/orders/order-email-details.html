@@ -7,6 +7,8 @@ Price: ${{ total_price.price__sum | floatformat:2 }}
     Product ref: {{ product.id }} => {{ product.brand }}-{{ product.title }} => ${{ product.price | floatformat:2 }}
 {% endfor %}
 
+Address: {{ order.address }}
+
 See you soon!
 
 Best regards
