@@ -1,7 +1,7 @@
 from django.contrib.sites.shortcuts import get_current_site
 from django.template.loader import render_to_string
 
-def send_confirmation_email(order, total_price):
+def send_order_email(order, total_price):
     
     print(order.user.username)
     subject = f'Thank you {order.user.username} for choosing our products'
