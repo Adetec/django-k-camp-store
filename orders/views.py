@@ -1,8 +1,42 @@
-from django.shortcuts import render, get_object_or_404
-from django.contrib.auth.models import User
+from django.shortcuts import render, get_object_or_404, redirect
+from carts.models import Cart
+from accounts.models import Profile
+from .models import Order
+
+from .forms import OrderForm
 
 
 # Create your views here.
+
 def checkout(request, pk):
-    user = get_object_or_404(User, pk=pk)
-    return render(request, 'orders/order.html', {'user': user})
+    user = request.user
+    if user.is_authenticated:
+        
+        cart = user.cart
+        profile = Profile.objects.filter(user_id=user.id).first()
+        products = cart.items.all()
+        
+        if request.method == 'POST':
+            order = Order(
+                user=user,
+                address=profile.address,
+            )
+            form = OrderForm(request.POST, instance=order)
+
+            if form.is_valid():
+                form.save()
+                order.items.set(products)
+                
+                return render(request, 'orders/order-successful.html')
+        else:
+            form = OrderForm(initial={
+                'address': profile.address
+            })
+            context = {
+                'form': form,
+                'cart': cart,
+                }
+            
+            return render(request, 'orders/order.html', context)
+    else:
+        return redirect('login')
