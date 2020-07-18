@@ -24,6 +24,11 @@
                 </div>
                 <div>
                     {% if user.is_authenticated %}
+                    <div id="cart">
+                        <a href="{% url 'cart' %}">
+                            <i class="fas fa-shopping-cart"></i>
+                        </a>
+                    </div>
                         <p>Hi {{ user.username }}</p>
                         <a id="logout" href="{% url 'logout' %}">Logout</a>
                     {% else %}
