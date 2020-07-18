@@ -40,7 +40,7 @@
                             <h3>Total price</h3>
                         </div>
                         <div>
-                            <p>${{ total_price.price__sum | floatformat:2  }}</p>
+                            <p>${{ total_price.price__sum | floatformat:2 }}</p>
                         </div>
                         <div>
                             <a class="checkout" href="{% url 'checkout' user.cart.pk %}">Checkout</a>
