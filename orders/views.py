@@ -41,3 +41,11 @@ def checkout(request, pk):
             return render(request, 'orders/order.html', context)
     else:
         return redirect('login')
+
+
+def order_list(request):
+    if request.user.is_authenticated and request.user.is_superuser:
+        orders = Order.objects.all()
+        return render(request, 'orders/order-list.html', {'orders': orders})
+    else:
+        return redirect('products_list')
