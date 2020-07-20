@@ -2,16 +2,25 @@
 {% block head_title %}Orders{% endblock %}
 
 {% block content %}
-<ul>
-    {% for order in orders %}
-    <li>
-        <p>User: {{ order.user }}</p>
-        <p>order address: {{ order.address }}</p>
-        <p>order id: {{ order.id }}</p>
-        <p>order total: {{ order.total_price }}</p>
-    </li>
-    {% empty %}
-    <li>No orders yet.</li>
-    {% endfor %}
-</ul>
+<section class="clearfix">
+
+    <h2 class="section-headline">Orders</h2>
+    <p class="section-description">
+        All users' orders
+    </p>
+    <div class="orders">
+        <ul>
+            {% for order in orders %}
+            <li class="order-details">
+                <p>User: <span>{{ order.user }}</span</p>
+                <p>order address: <span>{{ order.address }}</span></p>
+                <p>order id: <span>{{ order.id }}</span></p>
+                <p>order date: <span>{{ order.ordered_at }}</span></p>
+            </li>
+            {% empty %}
+            <li>No orders yet.</li>
+            {% endfor %}
+        </ul>
+    </div>
+</section>
 {% endblock %}

@@ -538,11 +538,11 @@ footer p{
 
 
 /*Cart Rules*/
-.cart {
+.cart, .orders {
     margin-top: 48px;
 }
 
-.cart ul {
+.cart ul, .orders ul {
     padding: 0;
 }
 
@@ -553,12 +553,12 @@ footer p{
     float: right;
 }
 
-.cart div {
+.cart div, .orders div {
     float: left;
     width: 25%;
 }
 
-.cart h3 {
+.cart h3, .orders h3{
     margin: 50px 0 0 0;
     font-size: 18px;
     font-weight: bold;
@@ -567,7 +567,7 @@ footer p{
     margin-left: 16px;
 }
 
-.cart p {
+.cart p, .orders p {
     margin: 50px 0 0 0;
 
     color: #777777;
@@ -633,6 +633,19 @@ footer p{
     border: 1px #F44336 solid;
     color: #F44336;
 }
+
+/* Orders rules*/
+.order-details {
+    list-style: none;
+    text-align: left;
+    padding: 0 0 36px 36px;
+    border-bottom: #444 solid 1px;
+}
+
+.order-details span {
+    color: #000;
+}
+
 
 /* Success Pages */
 a.back {
