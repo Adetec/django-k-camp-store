@@ -20,17 +20,19 @@ body{
 /*Header Rules*/
 header{
     height: auto;
-    border-bottom: 1px dotted #ccc;
+    box-shadow: darkgrey 1px 1px 4px;
 }
 
 #logo{
-    text-align: center;
+    
     font-family: 'Domine', serif;
     font-size: 24px;
     letter-spacing: 6px;
     line-height: 80px;
     margin: 0;
+    padding-left: 24px;
 }
+
 #logo a{
     color: #222;
     text-decoration: none;
@@ -43,12 +45,18 @@ header{
 #controls #cart{
     position: relative;
     display: inline-block;
-    width: 30px;
     line-height: 30px;
     text-align: center; /*1*/
     cursor: pointer;
     margin-right: 16px;
 }
+
+#cart a {
+    text-decoration: none;
+    font-weight: bold;
+    padding: 0 4px;
+}
+
 #controls p, #controls div { display: inline-block;}
 #controls #cart a{
     color: #222; 
@@ -65,31 +73,19 @@ header{
     top: 0px; /*2*/
     right: 0px; /*2*/
 }
-#login{
+#login, #logout{
     display: inline-block;
-    width: 140px;
+    width: 100px;
     line-height: 40px;
     font-size: 16px;
     background: transparent;
     border: 1px solid #222;
     color: #222;
     cursor: pointer;
-}
-#logout{
-    display: inline-block;
-    width: 140px;
-    line-height: 40px;
-    font-size: 16px;
-    background: transparent;
-    border: 1px solid #222;
-    color: #222;
-    cursor: pointer;
-    margin-left: 20px;
-}
-
-#login, #logout {
     text-align: center;
 }
+
+
 /*Navbar Rules*/
 .nav{
     border-top: 1px dotted #ccc;
