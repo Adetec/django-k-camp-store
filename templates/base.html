@@ -19,6 +19,7 @@
                 <div id="cart">
                     {% if user.is_superuser %}
                     <a href="{% url 'product_add' %}">New</a>
+                    <a href="{% url 'order_list' %}">Orders</a>
                         
                     {% endif %}
                 </div>
