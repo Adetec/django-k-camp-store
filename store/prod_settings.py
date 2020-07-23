@@ -10,7 +10,10 @@ if debug_option == 'true':
 else:
     DEBUG = False
 
-ALLOWED_HOSTS = ['.herokuapp.com',]
+ALLOWED_HOSTS = [
+    '.herokuapp.com',
+    'adetech.pythonanywhere.com'    
+]
 
 DATABASES = {
     'default': dj_database_url.config(default=os.environ.get('DATABASE_URL'))
