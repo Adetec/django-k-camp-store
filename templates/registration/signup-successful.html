@@ -5,7 +5,7 @@
 {% block content %}
     <section>
         <div>
-            <h1 class="section-headline">Thank you {{ user.username }}!</h1>
+            <h1 class="section-headline">Thank you {{ user.username  | capfirst }}!</h1>
             <p>Confirmation email sent to {{ user.email }}</p>
             <a class="back" href="{% url 'home' %}">Return to products</a>
         </div>

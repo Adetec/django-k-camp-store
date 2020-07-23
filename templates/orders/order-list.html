@@ -12,7 +12,7 @@
         <ul>
             {% for order in orders %}
             <li class="order-details">
-                <p>User: <span>{{ order.user }}</span></p>
+                <p>User: <span>{{ order.user  | capfirst }}</span></p>
                 <p>order address: <span>{{ order.address }}</span></p>
                 <p>order id: <span>{{ order.id }}</span></p>
                 <p>order date: <span>{{ order.ordered_at }}</span></p>
