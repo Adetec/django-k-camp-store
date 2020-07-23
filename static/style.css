@@ -376,7 +376,7 @@ span.helptext {
     background-color: #000;
 }
 
-.details-btn, .delete-btn{
+.details-btn, .edit-btn, .delete-btn{
     position: absolute;
     width: 92%;
     padding: 15px;
@@ -398,14 +398,23 @@ span.helptext {
     background-color: #f00;
 }
 
-.product:hover .details-btn{
-    bottom: 15px;
+.product:hover .details-btn,
+.product:hover .delete-btn,
+.product:hover .edit-btn {
     opacity: 100;
 }
 
+.product:hover .details-btn{
+    bottom: 15px;
+}
+
 .product:hover .delete-btn{
-    bottom: 76px;
-    opacity: 100;
+    bottom: 75px;
+
+}
+
+.product:hover .edit-btn{
+    bottom: 135px;
 }
 
 
