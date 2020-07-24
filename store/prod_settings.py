@@ -12,7 +12,8 @@ else:
 
 ALLOWED_HOSTS = [
     '.herokuapp.com',
-    'adetech.pythonanywhere.com'    
+    'adetech.pythonanywhere.com',
+    'adel.pythonanywhere.com'
 ]
 
 DATABASES = {
