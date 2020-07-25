@@ -25,6 +25,9 @@ venv
 # Design
 wireframe
 
+# Static files
+staticfiles
+
 
 # Django
 *.log
