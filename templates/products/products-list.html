@@ -3,33 +3,38 @@
 {% block title %}All products{% endblock %}
 
 {% block content %}
-    <section id="featured-products">
-
-        <h2 class="section-headline">Featured Products</h2>
-        <p class="section-description">
-            Refresh your look with pieces of our winter collection
-        </p>
-    
-        <div class="products-wrapper clearfix">
-            {% for product in products %}
-            <div class="product">
-                <div class="product-img">
-                    <img src="{{product.image.url}}" alt="{{ product.title }}">
-                    {% if user.is_superuser %}
-                        <a href="{% url 'product_edit' product.pk %}" class="edit-btn">Edit</a>
-                        <a href="{% url 'product_delete' product.pk %}" class="delete-btn">Delete</a>
-                    {% endif %}
-                        <a href="{% url 'product_details' product.pk %}" class="details-btn">Details</a>
-                </div>
-                <div class="product-description">
-                    <div class="product-brand">{{ product.brand | capfirst }}</div>
-                    <a class="product-name" href="{% url 'product_details' product.pk %}">{{ product.title | capfirst }}</a>
-                    <div class="product-price">${{ product.price | floatformat:2 }}</div>
-                </div>
-            </div>
-            {% empty %}
-            <p>Sorry! We have no product available till now!</p>
-            {% endfor %}
+    <section class="jumbotron jumbotron-fluid">
+        <div class="container text-center">
+            <h1 class="display-4">Featured Products</h1>
+            <p class="lead">Refresh your look with pieces of our winter collection</p>
+            <hr class="my-4">
+            <p>Checkout latest products in our store now</p>
+            <p class="lead">
+                <a class="btn btn-primary btn-lg" href="#featured-products" role="button">Navigate products</a>
+            </p>
         </div>
+    </section>
+
+    <section id="featured-products">
+        {% for product in products %}
+        <div class="product">
+            <div class="product-img">
+                <img src="{{product.image.url}}" alt="{{ product.title }}">
+                {% if user.is_superuser %}
+                    <a href="{% url 'product_edit' product.pk %}" class="edit-btn">Edit</a>
+                    <a href="{% url 'product_delete' product.pk %}" class="delete-btn">Delete</a>
+                {% endif %}
+                    <a href="{% url 'product_details' product.pk %}" class="details-btn">Details</a>
+            </div>
+            <div class="product-description">
+                <div class="product-brand">{{ product.brand | capfirst }}</div>
+                <a class="product-name" href="{% url 'product_details' product.pk %}">{{ product.title | capfirst }}</a>
+                <div class="product-price">${{ product.price | floatformat:2 }}</div>
+            </div>
+        </div>
+        {% empty %}
+        <p>Sorry! We have no product available till now!</p>
+        {% endfor %}
+
     </section>
 {% endblock %}
