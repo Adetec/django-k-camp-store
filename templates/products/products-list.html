@@ -3,38 +3,38 @@
 {% block title %}All products{% endblock %}
 
 {% block content %}
-    <section class="jumbotron jumbotron-fluid">
-        <div class="container text-center">
-            <h1 class="display-4">Featured Products</h1>
-            <p class="lead">Refresh your look with pieces of our winter collection</p>
-            <hr class="my-4">
-            <p>Checkout latest products in our store now</p>
-            <p class="lead">
-                <a class="btn btn-primary btn-lg" href="#featured-products" role="button">Navigate products</a>
-            </p>
-        </div>
-    </section>
+<section class="jumbotron jumbotron-fluid">
+    <div class="container text-center">
+        <h1 class="display-4">Featured Products</h1>
+        <p class="lead">Refresh your look with pieces of our winter collection</p>
+        <hr class="my-4">
+        <p>Checkout latest products in our store now</p>
+        <p class="lead">
+            <a class="btn btn-primary btn-lg" href="#featured-products" role="button">Navigate products</a>
+        </p>
+    </div>
+</section>
 
-    <section id="featured-products" class="card-columns">
-        {% for product in products %}
-        <div class="card">
-            <img class="card-img-top" src="{{product.image.url}}" alt="{{ product.title }}">
-            <div class="card-body">
-                <h5 class="card-title">{{ product.brand | capfirst }}</h5>
-                <p class="card-text">${{ product.price | floatformat:2 }}</p>
-            </div>
-            <div class="card-footer">
-                <div class="btn-group w-100">
-                    <a class="btn btn-primary ml-auto" href="{% url 'product_details' product.pk %}" class="details-btn">Details</a>
-                    {% if user.is_superuser %}
-                        <a class="btn btn-secondary mx-auto" href="{% url 'product_edit' product.pk %}" class="edit-btn">Edit</a>
-                        <a class="btn btn-danger mr-auto" href="{% url 'product_delete' product.pk %}" class="delete-btn">Delete</a>
-                    {% endif %}
-                </div>
-          </div>
+<section id="featured-products" class="card-columns">
+    {% for product in products %}
+    <div class="card">
+        <img class="card-img-top" src="{{product.image.url}}" alt="{{ product.title }}">
+        <div class="card-body">
+            <h5 class="card-title">{{ product.brand | capfirst }}</h5>
+            <p class="card-text">${{ product.price | floatformat:2 }}</p>
         </div>
-        {% empty %}
-        <p>Sorry! We have no product available till now!</p>
-        {% endfor %}
-      </section>
+        <div class="card-footer">
+            <div class="btn-group w-100">
+                <a class="btn btn-primary ml-auto" href="{% url 'product_details' product.pk %}">Details</a>
+                {% if user.is_superuser %}
+                <a class="btn btn-secondary mx-auto" href="{% url 'product_edit' product.pk %}">Edit</a>
+                <a class="btn btn-danger mr-auto" href="{% url 'product_delete' product.pk %}">Delete</a>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+    {% empty %}
+    <p>Sorry! We have no product available till now!</p>
+    {% endfor %}
+</section>
 {% endblock %}
