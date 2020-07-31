@@ -3,11 +3,11 @@
 {% block title %}Email confirmation{% endblock %}
 
 {% block content %}
-    <section>
-        <div>
-            <h1 class="section-headline">Thank you {{ user.username  | capfirst }}!</h1>
+    <section class="container">
+        <div class="text-center mt-4">
+            <h1>Thank you {{ user.username  | capfirst }}!</h1>
             <p>Confirmation email sent to {{ user.email }}</p>
-            <a class="back" href="{% url 'home' %}">Return to products</a>
+            <a class="btn btn-primary" href="{% url 'home' %}">Return to products</a>
         </div>
     </section>
 {% endblock %}
