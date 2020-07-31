@@ -11,6 +11,17 @@ a {
     border-color: #333;
 }
 
+.btn-primary:hover {
+    background-color: #fff;
+    border-color: #333;
+    color: #333;
+}
+
+.btn-danger {
+    background-color: #671b22;
+    border-color: #671b22;
+}
+
 p {
     color: #4b4b4b;
 }
