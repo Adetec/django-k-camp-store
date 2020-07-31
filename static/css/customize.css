@@ -1,3 +1,21 @@
+.primary, a {
+    color: #333;
+}
+
+a {
+    font-weight: bold;
+}
+
+.btn-primary {
+    background-color: #333;
+    border-color: #333;
+}
+
+p {
+    color: #4b4b4b;
+}
+
+
 .jumbotron {
     height: 100vh;
 }
