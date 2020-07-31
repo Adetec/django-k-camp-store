@@ -3,9 +3,9 @@
 {% block title %}{{ operation.title }}{% endblock %}
 
 {% block content %}
-    <section class="form-section">
-        <h2 class="section-headline">{{ operation.title }}</h2>
-        <p class="section-description">
+    <section class="container py-4">
+        <h2 class="text-center">{{ operation.title }}</h2>
+        <p class="text-center">
             {{ operation.description }}
         </p>
         <div class="form">
@@ -15,8 +15,8 @@
                 {{ profile_form.as_p }}
                 <input class="btn btn-primary" type="submit" value="{{ operation.title }}">
             </form>
-            <div>
-                <a href="{% url 'login' %}">Already have an account?</a>
+            <div class="container">
+                <a class="float-right" href="{% url 'login' %}">Already have an account?</a>
             </div>
         </div>
     </section>

@@ -3,8 +3,8 @@
 {% block title %}Login{% endblock %}
 
 {% block content %}
-    <section class="form-section">
-        <h2 class="section-headline">Login</h2>
+    <section class="container py-4">
+        <h2 class="text-center">Login</h2>
         <p class="section-description">
             Please fill in your credentials to login to your account.
         </p>
@@ -16,9 +16,9 @@
                 </div>
                 <input class="btn btn-primary" type="submit" value="Login">
             </form>
-            <div>
-                <a href="{% url 'signup' %}">Don't have an account?</a>
-                <a href="{% url 'password_reset' %}">Reset password</a>
+            <div class="container">
+                <a class="float-left" href="{% url 'signup' %}">Don't have an account?</a>
+                <a class="float-right" href="{% url 'password_reset' %}">Reset password</a>
             </div>
         </div>
     </section>
