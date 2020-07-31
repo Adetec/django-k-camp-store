@@ -35,6 +35,11 @@
                   <ul class="nav justify-content-end container">
                       {% if user.is_authenticated %}
                       <li class="nav-item">
+                        <a class="nav-link" href="{% url 'cart' %}">
+                          <i class="fas fa-shopping-cart"></i>
+                        </a>
+                      </li>
+                      <li class="nav-item">
                         <a class="nav-link" href="#">Hi {{ user.username  | capfirst }}</a>
                       </li>
                       <li class="nav-item">
