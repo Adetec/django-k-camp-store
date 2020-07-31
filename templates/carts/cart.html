@@ -3,53 +3,42 @@
 {% block title %}{{ user.username }}'s Cart{% endblock %}
 
 {% block content %}
-    <section class="clearfix">
-
-        <h2 class="section-headline">Your cart</h2>
-        <p class="section-description">
-            All products you've added to your cart
-        </p>
-    
-        <div class="cart">
-            <ul>
-                {% for product in products %}
-                    <li class="item">
-                        <div class="cart-product-img">
-                            <img src="{{product.image.url}}" alt="{{ product.title }}">
-                        </div>
-                        <div >
-                            <h3>{{ product.title | capfirst }}</h3>
-                        </div>
-                        <div>
-                            <p>${{ product.price | floatformat:2 }}</p>
-                        </div>
-                        <div>
-                            <a class="remove" href="{% url 'remove_from_cart' product_id=product.id %}">x</a>
-                        </div>
-                    </li>
-                {% empty %}
-                    <li>
-                        <p>Your cart is still empty!</p>
-                    </li>
-                {% endfor %}
-
-                {% if total_price.price__sum > 0 %}
-                
-                    <li id="cart-summary" class="item">
-                        <div>
-                            <h3>Total price</h3>
-                        </div>
-                        <div>
-                            <p>${{ total_price.price__sum | floatformat:2 }}</p>
-                        </div>
-                        <div>
-                            <a class="checkout" href="{% url 'checkout' user.cart.pk %}">Checkout</a>
-                            <a class="clear" href="{% url 'remove_all_from_cart' %}">Clear cart</a>
-                        </div>
-
-                    </li>
-                {% endif %}
-            </ul>
+    <section class="container">
+        <div class="mt-2 text-center">
+            <h2 class="section-headline mt-2">Your cart</h2>
+            <p class="section-description">
+                All products you've added to your cart
+            </p>
         </div>
+
+        <ul class="list-unstyled container">
+            {% for product in products %}
+            <li class="media shadow-sm mb-1 p-2">
+              <img class="img-thumbnail mr-3" src="{{product.image.url}}" alt="{{ product.title }}">
+              <div class="media-body">
+                <h5 class="mt-0 mb-1">{{ product.title | capfirst }}</h5>
+                <p>${{ product.price | floatformat:2 }}</p>
+              </div>
+              <div>
+                <a class="text-danger p-2" href="{% url 'remove_from_cart' product_id=product.id %}">x</a>
+              </div>
+            </li>
+            {% empty %}
+            <li>
+                <p class="alert alert-secondary">Your cart is still empty!</p>
+            </li>
+            {% endfor %}
+            {% if total_price.price__sum > 0 %}
+            <div class="card border-0 text-right float-right" style="width: 18rem;">
+                <div class="card-body">
+                  <h5 class="card-title">Total price</h5>
+                  <p class="card-text font-weight-bold">${{ total_price.price__sum | floatformat:2 }}</p>
+                  <a href="{% url 'checkout' user.cart.pk %}" class="btn btn-primary">Checkout</a>
+                  <a href="{% url 'remove_all_from_cart' %}" class="btn btn-danger">Clear cart</a>
+                </div>
+            </div>
+            {% endif %}
+        </ul>
     </section>
+
 {% endblock %}
