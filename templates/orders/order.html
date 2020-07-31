@@ -4,17 +4,22 @@
 {% block title %}{{ user.username | capfirst }}'s order{% endblock %}
 
 {% block content %}
-    <section class="form-section">
-        <h2 class="section-headline">Make your order</h2>
-        <p class="section-description">
-            Change your main address if you want to order from a different one.
-        </p>
+    <section class="container mt-4">
+        <div class="text-center">
+            <h2>Make your order</h2>
+            <p>
+                Change your main address if you want to order from a different one.
+            </p>
+        </div>
         <div class="form">
             <form action="" method="post" enctype="multipart/form-data">
                 {% csrf_token %}
                 {{ form.as_p }}
-                <input class="submit-btn" type="submit" value="Order now">
+                <input class="btn btn-primary" type="submit" value="Order now">
             </form>
         </div>
     </section>
+    <script>
+        addFormClasses()
+    </script>
 {% endblock %}

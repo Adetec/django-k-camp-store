@@ -2,25 +2,36 @@
 {% block title %}Orders{% endblock %}
 
 {% block content %}
-<section class="clearfix">
-
-    <h2 class="section-headline">Orders</h2>
-    <p class="section-description">
-        All users' orders
-    </p>
-    <div class="orders">
-        <ul>
-            {% for order in orders %}
-            <li class="order-details">
-                <p>User: <span>{{ order.user  | capfirst }}</span></p>
-                <p>order address: <span>{{ order.address }}</span></p>
-                <p>order id: <span>{{ order.id }}</span></p>
-                <p>order date: <span>{{ order.ordered_at }}</span></p>
-            </li>
-            {% empty %}
-            <li>No orders yet.</li>
-            {% endfor %}
-        </ul>
+<section class="container mt-4">
+    <div class="text-center">
+        <h2 class="section-headline">Orders</h2>
+        <p class="section-description">
+            All users' orders
+        </p>
     </div>
+    <table class="table table-striped">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">User</th>
+            <th scope="col">order address</th>
+            <th scope="col">order date</th>
+          </tr>
+        </thead>
+        <tbody>
+            {% for order in orders %}
+            <tr>
+                <th scope="row">{{ order.id }}</th>
+                <td>{{ order.user  | capfirst }}</td>
+                <td>{{ order.address }}</td>
+                <td>{{ order.ordered_at }}</td>
+            </tr>
+            {% empty %}
+            <tr scope="row">
+                <td colspan="4" class="text-center font-weight-bold">No orders yet.</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
 </section>
 {% endblock %}
