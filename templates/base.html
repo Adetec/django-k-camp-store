@@ -6,6 +6,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}"/>
         <link rel="stylesheet" href="{% static 'css/customize.css' %}"/>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
         <script src="{% static 'js/app.js' %}"></script>
         <title>{% block title %}{% endblock %} | Adetech Store</title>
     </head>
@@ -60,14 +61,34 @@
             {% endblock %}
         </main>
     </div>
-    <footer class="sticky-bottom p-2">
-        <div class="fixed-bottom bg-white">
-            <a class="btn btn-primary m-2 float-right" href="#" id="scroll-up">
-                <i class="fas fa-chevron-up"></i>
-            </a>
-            <!--2-->
-            <p>&copy; 2020 STORE All Rights Reserved.</p>
-            <!--2-->
+    <footer class="page-footer py3">
+        
+        <div class="mb-5 d-flex justify-content-around">
+  
+          <!-- Twitter -->
+          <a class="text-secondary" href="https://twitter.com/adetechad" target="_BLANK">
+            <i class="fab fa-twitter fa-2x"></i>
+          </a>
+          <!-- Facebook -->
+          <a class="text-secondary" href="https://www.facebook.com/adel.islem.16" target="_BLANK">
+            <i class="fab fa-facebook-square fa-2x"></i>
+          </a>
+          <!--Linkedin -->
+          <a class="text-secondary" href="https://www.linkedin.com/in/adel-lassag/" target="_BLANK">
+            <i class="fab fa-linkedin fa-2x"></i>
+          </a>
+          <!--Github -->
+          <a class="text-secondary" href="https://github.com/Adetec" target="_BLANK">
+            <i class="fab fa-github-square fa-2x"></i>
+          </a>
+        </div>
+        <div class="mt-2 pt-4 text-center">&copy; 2020 STORE All Rights Reserved.</div>
+        <div class="fixed-bottom">
+          <a class="btn btn-primary m-2 float-right" href="#" id="scroll-up">
+              <i class="fas fa-chevron-up"></i>
+          </a>
+          <!--2-->
+          <!--2-->
         </div>
     </footer>
     
