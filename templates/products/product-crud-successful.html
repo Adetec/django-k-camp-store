@@ -3,10 +3,10 @@
 {% block title %}Product {{ operation }}ed{% endblock %}
 
 {% block content %}
-    <section>
-        <div>
-            <h1 class="section-headline">Product {{ operation }}ed successfully!</h1>
-            <a class="back" href="{% url 'home' %}">Return to products</a>
+    <section class="container">
+        <div class="alert alert-seconday text-center mt-4">
+            <h1 class="section-headline mt-2">Product {{ operation }}ed successfully!</h1>
+            <a class="btn btn-primary mt-4" href="{% url 'home' %}">Return to products</a>
         </div>
     </section>
 {% endblock %}
