@@ -3,22 +3,16 @@
 {% block title %}{{product.title}}{% endblock %}
 
 {% block content %}
-    <section class="single-product-details clearfix">
-        <div class="product-details-img">
-            <img src="{{product.image.url}}" alt="{{ product.title }}" />
-        </div>
-        <div class="product-details-desc">
-            <div class="product-brand">{{product.brand | capfirst }}</div>
-            <h2 class="product-name">{{product.title | capfirst }}</h2>
-            <div class="product-price">${{product.price | floatformat:2 }}</div>
-            <p class="product-desc">
-                {{product.description}}
-            </p>
-        </div>
-        <div class="cart-btn-box">
-            <a href="{% url 'add_to_cart' product_id=product.id %}">
-                <i class="fas fa-cart-plus"></i>   Add to cart
-            </a>
-        </div>
-    </section>
+<section class="media mt-4 container">
+    <img class="align-self-center mr-3" src="{{product.image.url}}" alt="{{ product.title }}">
+    <div class="media-body">
+        <h5 class="mt-0">{{product.brand | capfirst }}</h5>
+        <p>{{product.title | capfirst }}</p>
+        <p class="text-secondary">${{product.price | floatformat:2}}</p>
+        <p class="">{{product.description}}</p>
+        <a class="btn btn-primary float-right" href="{% url 'add_to_cart' product_id=product.id %}">
+            <i class="fas fa-cart-plus"></i> Add to cart
+        </a>
+    </div>
+</section>
 {% endblock %}
