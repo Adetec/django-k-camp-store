@@ -21,6 +21,7 @@
         <img class="card-img-top" src="{{product.image.url}}" alt="{{ product.title }}">
         <div class="card-body">
             <h5 class="card-title">{{ product.brand | capfirst }}</h5>
+            <p class="card-text font-weight-bold">{{ product.title | capfirst }}</p>
             <p class="card-text">${{ product.price | floatformat:2 }}</p>
         </div>
         <div class="card-footer">
