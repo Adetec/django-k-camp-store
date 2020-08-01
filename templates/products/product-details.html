@@ -3,9 +3,9 @@
 {% block title %}{{product.title}}{% endblock %}
 
 {% block content %}
-<section class="media mt-4 container">
-    <img class="align-self-center mr-3" src="{{product.image.url}}" alt="{{ product.title }}">
-    <div class="media-body">
+<section class="media mt-4 container row">
+    <img class="align-self-center mr-3 col-sm" src="{{product.image.url}}" alt="{{ product.title }}">
+    <div class="media-body col-sm">
         <h5 class="mt-0">{{product.brand | capfirst }}</h5>
         <p>{{product.title | capfirst }}</p>
         <p class="text-secondary">${{product.price | floatformat:2}}</p>
